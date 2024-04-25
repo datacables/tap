@@ -1,10 +1,10 @@
 // Check for NFC support
-if (navigator.nfc) {
-    console.log("NFC Supported");
+function log(message) {
+  document.getElementById("log-container").textContent = message;
+}
 
-    function log(message) {
-      document.getElementById("log-container").textContent = message;
-    }
+if (navigator.nfc) {
+    log("NFC Supported");
   
     // Function to handle successful tag read
     function handleReadSuccess(nfcEvent) {

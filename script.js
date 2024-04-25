@@ -5,10 +5,11 @@ if (navigator.nfc) {
     // Function to handle successful tag read
     function handleReadSuccess(nfcEvent) {
       const tag = nfcEvent.target;
-      const content = /* Parse data from tag */; // Implement logic to parse tag data
+      const tagByteArray = nfcEvent.data.getBytes(); // Get raw byte data from tag
+      const content = new TextDecoder().decode(tagByteArray); // Decode bytes to string
       document.getElementById("content-container").textContent = content;
     }
-  
+    
     // Function to handle reading errors
     function handleReadError(error) {
       console.error("NFC Read Error:", error);
